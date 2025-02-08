@@ -35,7 +35,7 @@ To run this project locally, follow these steps:
 
 ## Customization
 
-### Set a Custom Target Date
+#### Set a Custom Target Date
 
 To set a custom target date, modify the `targetDate` variable in the `<script>` section of the `index.html` file:
 
