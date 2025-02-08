@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown Page</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+
+        .countdown-container {
+            text-align: center;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #countdown {
+            font-size: 1.5em;
+            margin: 20px 0;
+        }
+
+        #redirectButton {
+            padding: 10px 20px;
+            font-size: 1em;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            display: none; /* Initially hidden */
+        }
+
+        #redirectButton:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="countdown-container">
+        <h1>Countdown to Event</h1>
+        <div id="countdown">
+            <span id="days"></span> Days 
+            <span id="hours"></span> Hours 
+            <span id="minutes"></span> Minutes 
+            <span id="seconds"></span> Seconds
+        </div>
+        <button id="redirectButton" onclick="redirect()">Go to Event Page</button>
+    </div>
+
+    <script>
+        // Set the target date and time
+        const targetDate = new Date('February 20, 2025 00:00:00').getTime();
+
+        // Update the countdown every second
+        const countdownInterval = setInterval(() => {
+            const now = new Date().getTime();
+            const timeLeft = targetDate - now;
+
+            if (timeLeft > 0) {
+                const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+                document.getElementById('days').innerText = days;
+                document.getElementById('hours').innerText = hours;
+                document.getElementById('minutes').innerText = minutes;
+                document.getElementById('seconds').innerText = seconds;
+            } else {
+                clearInterval(countdownInterval);
+                document.getElementById('countdown').innerText = 'The event has started!';
+                document.getElementById('redirectButton').style.display = 'inline-block';
+            }
+        }, 1000);
+
+        // Redirect function
+        function redirect() {
+            window.location.href = 'https://shajafkhan.github.io/Responsive-Birthday-Card/'; // Replace with your target URL
+        }
+    </script>
+</body>
+</html>
