@@ -42,60 +42,73 @@
         #redirectButton:hover {
             background-color: #0056b3;
         }
+
+        .error-message {
+            color: #d9534f;
+            font-size: 1.2em;
+        }
     </style>
 </head>
 <body>
     <div class="countdown-container">
-        <h1>Countdown for <span id="name">Shajaf</span></h1>
-        <h2> Wait for Countdown to end</h2>
+        <h1>Countdown for <span id="name">Loading...</span></h1>
+        <h2>Wait for Countdown to end</h2>
         <div id="countdown">Loading...</div>
         <button id="redirectButton" onclick="redirect()">Click the button to redirect</button>
     </div>
 
     <script>
-        function getUrlParameter(name) {
-            name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
-            var regex = new RegExp('[\?&]' + name + '=([^&#]*)');
-            var results = regex.exec(location.search);
-            return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+        // Function to retrieve data from localStorage
+        function loadCountdownData() {
+            const generatedUrls = JSON.parse(localStorage.getItem('generatedUrls')) || [];
+
+            // Use the latest entry in the localStorage array
+            if (generatedUrls.length > 0) {
+                return generatedUrls[generatedUrls.length - 1];
+            } else {
+                return null;
+            }
         }
 
-        const endDateParam = getUrlParameter('end-date');
-        const nameParam = getUrlParameter('n') || 'Shajaf';
-        const redirectUrl = getUrlParameter('birthday-card-url') || '#';
+        const countdownData = loadCountdownData();
 
-        document.getElementById('name').textContent = nameParam;
-
-        function countdown(endDate) {
-            const end = new Date(endDate).getTime();
-            const timer = setInterval(() => {
-                const now = new Date().getTime();
-                const distance = end - now;
-
-                if (distance <= 0) {
-                    clearInterval(timer);
-                    document.getElementById('countdown').textContent = 'The countdown has ended!';
-                    document.getElementById('redirectButton').style.display = 'inline-block';
-                    return;
-                }
-
-                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-                document.getElementById('countdown').textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
-            }, 1000);
-        }
-
-        function redirect() {
-            window.location.href = redirectUrl;
-        }
-
-        if (endDateParam) {
-            countdown(endDateParam);
+        // If no data is found, show an error message
+        if (!countdownData) {
+            document.querySelector('.countdown-container').innerHTML = `
+                <div class="error-message">No countdown data found in local storage.<br>
+                Please generate a countdown from the URL Generator page.</div>`;
         } else {
-            document.getElementById('countdown').textContent = 'Invalid end date!';
+            const { name, endDate, birthdayCardUrl } = countdownData;
+
+            document.getElementById('name').textContent = name;
+
+            function countdown(endDate) {
+                const end = new Date(endDate).getTime();
+                const timer = setInterval(() => {
+                    const now = new Date().getTime();
+                    const distance = end - now;
+
+                    if (distance <= 0) {
+                        clearInterval(timer);
+                        document.getElementById('countdown').textContent = 'The countdown has ended!';
+                        document.getElementById('redirectButton').style.display = 'inline-block';
+                        return;
+                    }
+
+                    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                    document.getElementById('countdown').textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+                }, 1000);
+            }
+
+            function redirect() {
+                window.location.href = birthdayCardUrl;
+            }
+
+            countdown(endDate);
         }
     </script>
 </body>
