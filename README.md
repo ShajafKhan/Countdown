@@ -1,43 +1,57 @@
-# Countdown to Event
+# Countdown Page
 
-This repository contains a simple countdown web page that counts down to a specified event date and time. Once the countdown reaches zero, a button appears that redirects the user to a specified event page.
+A simple, modern countdown webpage that counts down to a user-defined date and, when finished, redirects the user to a personalized birthday card or event page.
 
 ## Features
 
-- Displays the remaining days, hours, minutes, and seconds to the event.
-- Automatically updates the countdown every second.
-- Shows a message and a button to redirect to an event page once the countdown reaches zero.
+- **Live Countdown:** Displays the days, hours, minutes, and seconds left until a specified date.
+- **Personalization:** Shows the user's name on the page.
+- **Automatic Redirect:** When the countdown ends, a button appears to redirect to a personalized page (e.g., birthday card).
+- **Parameter Handling:** Accepts name, end date, and redirect URL as query parameters, storing them in local storage for persistence.
+- **Responsive Design:** Clean, user-friendly interface that works on desktop and mobile.
 
-## Technologies Used
+## How It Works
 
-- HTML
-- CSS
-- JavaScript
+1. The page expects three parameters in the URL:
+    - `n`: The name to display.
+    - `end-date`: The target date/time for the countdown (ISO format recommended, e.g., `2025-08-20T00:00:00`).
+    - `birthday-card-url`: The URL to redirect to after the countdown ends.
 
-## Installation
+2. On first load, these parameters are parsed and stored in `localStorage`. The URL is then cleaned for a better user experience.
 
-To run this project locally, follow these steps:
+3. The countdown timer runs, showing the time remaining.
 
-1. Clone the repository:
-    ```bash
-    git clone https://github.com/ShajafKhan/countdown.git
-    ```
-2. Navigate to the project directory:
-    ```bash
-    cd countdown
-    ```
+4. Once the countdown reaches zero, a button appears. Clicking it takes the user to the personalized URL.
+<!--
+## Example Usage
 
-## Usage
+You can generate a link like:
 
-1. Open the `index.html` file in your preferred web browser.
-2. The countdown will automatically start and display the remaining time to the event.
-3. Once the countdown reaches zero, a button will appear that redirects you to the specified event page.
+```
+https://yourdomain.com/Countdown.html?n=Alice&end-date=2025-12-31T00:00:00&birthday-card-url=https%3A%2F%2Fyourdomain.com%2FResponsive-Birthday-Card.html%3Fn%3DAlice
+```
+
+- The countdown will show for "Alice" and, when finished, redirect to her birthday card.
+-->
+## Setup
+
+1. Copy `Countdown.html` to your web server.
+2. Open with the appropriate parameters in the URL.
+3. For generating links, use [Url-Generator](https://github.com/ShajafKhan/Url-Generator) or build your own query string.
 
 ## Customization
 
-#### Set a Custom Target Date
+- **Styling:** Edit the `<style>` section in the HTML for custom colors, fonts, or layout.
+- **Redirect Button:** Change the button label or behavior in the JavaScript as needed.
 
-To set a custom target date, modify the `targetDate` variable in the `<script>` section of the `index.html` file:
+## Dependencies
 
-```javascript
-const targetDate = new Date('February 20, 2025 00:00:00').getTime();
+- No external dependencies. Pure HTML, CSS, and JavaScript.
+
+## Related Projects
+
+- [Url-Generator](https://github.com/ShajafKhan/Url-Generator): Quickly create personalized countdown and card URLs.
+
+## License
+
+MIT License. See [LICENSE](LICENSE) for details.
