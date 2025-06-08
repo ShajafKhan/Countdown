@@ -51,6 +51,7 @@ https://yourdomain.com/Countdown.html?n=Alice&end-date=2025-12-31T00:00:00&birth
 ## Related Projects
 
 - [Url-Generator](https://github.com/ShajafKhan/Url-Generator): Quickly create personalized countdown and card URLs.
+- [Responsive-Birthday-Card](https://github.com/ShajafKhan/Responsive-Birthday-Card) — Send a digital, animated, and customizable birthday card.
 
 ## License
 
