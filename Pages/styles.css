@@ -41,7 +41,6 @@ body {
     font-size: 1.2em;
 }
 
-/* Error message styling */
 .error-message h2 {
     color: #d9534f;
     margin-bottom: 15px;
@@ -54,7 +53,6 @@ body {
     line-height: 1.4;
 }
 
-/* URL Generator button styling */
 .url-generator-btn {
     display: inline-block;
     margin: 20px 0;
