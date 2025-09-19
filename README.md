@@ -28,7 +28,7 @@ A simple, modern countdown webpage that counts down to a user-defined date and, 
 You can generate a link like:
 
 ```
-https://yourdomain.com/Countdown.html?n=Alice&end-date=2025-12-31T00:00:00&birthday-card-url=https%3A%2F%2Fyourdomain.com%2FResponsive-Birthday-Card.html%3Fn%3DAlice
+https://yourdomain.com/Countdown.html?n=Alice&end-date=2025-12-31T00:00:00&birthday-card-url=https%3A%2F%2Fshajafkhan.github.io/Responsive-Birthday-Card/Pages/index.html%3Fn%3DAlice
 ```
 
 - The countdown will show for "Alice" and, when finished, redirect to her birthday card.
@@ -37,7 +37,7 @@ https://yourdomain.com/Countdown.html?n=Alice&end-date=2025-12-31T00:00:00&birth
 
 1. Copy `Countdown.html` to your web server.
 2. Open with the appropriate parameters in the URL.
-3. For generating links, use [Url-Generator](https://github.com/ShajafKhan/Url-Generator) or build your own query string.
+3. For generating links, use [Url-Generator](https://github.com/ShajafKhan/Url-Generator/Pages/index.html) or build your own query string.
 
 ## Customization
 

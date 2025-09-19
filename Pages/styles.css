@@ -1,0 +1,76 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+}
+
+.countdown-container {
+    text-align: center;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#countdown {
+    font-size: 1.5em;
+    margin: 20px 0;
+}
+
+#redirectButton {
+    padding: 10px 20px;
+    font-size: 1em;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: none;
+}
+
+#redirectButton:hover {
+    background-color: #0056b3;
+}
+
+.error-message {
+    color: #d9534f;
+    font-size: 1.2em;
+}
+
+/* Error message styling */
+.error-message h2 {
+    color: #d9534f;
+    margin-bottom: 15px;
+    font-size: 1.3em;
+}
+
+.error-message p {
+    margin: 10px 0;
+    color: #666;
+    line-height: 1.4;
+}
+
+/* URL Generator button styling */
+.url-generator-btn {
+    display: inline-block;
+    margin: 20px 0;
+    padding: 12px 24px;
+    font-size: 1.1em;
+    background-color: #007BFF;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.url-generator-btn:hover {
+    background-color: #0056b3;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
