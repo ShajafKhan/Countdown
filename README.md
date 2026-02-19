@@ -2,7 +2,7 @@
 
 A simple, modern countdown webpage that counts down to a user-defined date and, when finished, redirects the user to a personalized birthday card or event page.
 
-[Click to generate custom url](https://shajafkhan.github.io/Url-Generator/Pages/index.hhtml)
+[Click to generate custom url](https://shajafkhan.github.io/Url-Generator/Pages/index.html)
 ## Features
 
 - **Live Countdown:** Displays the days, hours, minutes, and seconds left until a specified date.
